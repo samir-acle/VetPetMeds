@@ -25,10 +25,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # # Use bootstrap as css framework
 # gem 'bootstrap-sass'
+# Use Devise for authentication
+gem 'devise'
+# Use CanCanCan for authorization
+gem 'cancancan'
+# Use Rolify for Roles
+gem 'rolify'
 
 # Use materialize as CSS framework
 gem 'materialize-sass'
-
 # Use autoprefixer to add vendor prefixes to CSS code
 gem 'autoprefixer-rails'
 
