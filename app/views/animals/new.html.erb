@@ -1,0 +1,14 @@
+<%= form_for @animal do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :species %>
+  <%= f.text_field :species %>
+
+  <%= f.label :weight, 'weight in pounds' %>
+  <%= f.number_field :weight %>
+
+  <%= f.submit %>
+
+<% end %>
