@@ -3,7 +3,7 @@
 
 <%= form_for [@animal,@dose] do |f| %>
   <div class='input-field col s12'>
-    <%= collection_select :dose, :drug_id, Drug.all, :id, :name, {:include_blank => 'Select the Drug'} %>
+    <%= collection_select :dose, :drug_id, Drug.all, :id, :name, {:prompt => 'Select the Drug'} %>
     <!-- <label for='dose_drug_id'>Choose Your Drug</label> -->
   </div>
 

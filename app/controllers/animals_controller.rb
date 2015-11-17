@@ -14,6 +14,24 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
+    @doses = @animal.doses
+  end
+
+  def edit
+    @animal = Animal.find(params[:id])
+  end
+
+  def update
+    @animal = Animal.find(params[:id])
+    @animal.update(animal_params)
+    redirect_to @animal
+  end
+
+# TODO: fix so does not delete if have doses?
+  def destroy
+    @animal = Animal.find(params[:id])
+    @animal.destroy
+    redirect_to '/'
   end
 
   private

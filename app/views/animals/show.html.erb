@@ -2,5 +2,29 @@
 <%= @animal.species %>
 <p><%= @animal.weight %> lbs</p>
 
+<div>
+
+<%= link_to 'Edit Animal',  edit_animal_path(@animal) %></div>
+<div><%= link_to 'Delete Animal',  @animal, method: :delete %></div>
 
 <%= link_to 'New Dose', new_animal_dose_path(@animal) %>
+
+<h3>Medication Log</h3>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Drug Name</th>
+      <th>Dosage</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <% @doses.each do |dose| %>
+    <tr>
+      <td><%= dose.drug.name %></td>
+      <td><%= dose.dosage %></td>
+      <td><%= dose.created_at.strftime("%m/%d/%Y") %></td>
+    </tr>
+  <% end %>
+</table>
