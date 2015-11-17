@@ -1,2 +1,15 @@
 <p>Please double check the following information is correct:
   <%= @animal.name %> weighs <%= @animal.weight %> lbs</p>
+
+<%= form_for [@animal,@dose] do |f| %>
+  <div class='input-field col s12'>
+    <%= collection_select :dose, :drug_id, Drug.all, :id, :name, {:include_blank => 'Select the Drug'} %>
+    <!-- <label for='dose_drug_id'>Choose Your Drug</label> -->
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<%# going to need to run init code everytime this select changes %>
+<%# might need to change to include_blank- difference is will always show up>
+<%# whereas prompt only shows up when creating new %>
