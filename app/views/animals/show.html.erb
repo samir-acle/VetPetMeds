@@ -1,3 +1,6 @@
 <h2><%= @animal.name %></h2>
 <%= @animal.species %>
 <p><%= @animal.weight %> lbs</p>
+
+
+<%= link_to 'New Dose', new_animal_dose_path(@animal) %>
