@@ -1,7 +1,7 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy, :sort]
   def index
-    @animals = Animal.all
+    @animals = Animal.all.order(:name)
   end
 
   def new
