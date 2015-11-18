@@ -18,4 +18,4 @@ Drug.create(name: 'Ketamine', dosing: 0.13, route: 'IV')
 Drug.create(name: 'Midazolam', dosing: 0.13, route: 'IV')
 
 # TODO: fix below dosing
-Drug.create(name: 'Buprenorphine', dosing: 0.03, route: 'IM or SC')
+Drug.create(name: 'Buprenorphine', dosing: 0.03, route: 'IM or SC', restrictions: 'cat')
