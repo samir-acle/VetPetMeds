@@ -5,33 +5,42 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
 </head>
 <body>
   <nav>
-    <%= link_to 'Animals', animals_path %>
-    <%= link_to 'Medications', drugs_path %>
-    <%= link_to 'Doses', doses_path %>
+    <ul class='left'>
+      <li><%= link_to 'Home', root_path, class: 'waves-effect btn-flat' %></li>
+      <li><%= link_to 'Animals', animals_path, class: 'waves-effect btn-flat' %></li>
+      <li><%= link_to 'Medications', drugs_path, class: 'waves-effect btn-flat' %></li>
+      <li><%= link_to 'Doses', doses_path, class: 'waves-effect btn-flat' %></li>
+    </ul>
 
-    <span>
-      <% if current_user %>
-        Welcome, <%= current_user.email %>
-        <%= link_to 'Signout', destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to 'Signup', new_user_registration_path %>
-        <%= link_to 'Login', new_user_session_path %>
-      <% end %>
-    </span>
-
+   <ul class='right'>
+     <% if current_user %>
+       <li>Welcome, <%= current_user.email %></li>
+       <li><%= link_to 'Signout', destroy_user_session_path, :method => :delete %></li>
+     <% else %>
+       <li><%= link_to 'Signup', new_user_registration_path %></li>
+       <li><%= link_to 'Login', new_user_session_path %></li>
+     <% end %>
+   </ul>
   </nav>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
+<main>
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </div>
+</main>
 
 <script>
   $(document).ready(function() {
      $('select').material_select();
+
+     var mySVG = $('svg').drawsvg({duration: 10000});
+     mySVG.drawsvg('animate');
    });
  </script>
 </body>

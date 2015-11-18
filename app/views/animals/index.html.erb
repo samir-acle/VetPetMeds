@@ -1,7 +1,7 @@
-<%= link_to 'Create Animal', new_animal_path %>
+<a href="/animals/new" class='btn-floating btn-large waves-effect'><i class='material-icons'>add</i></a>
 
-<ul>
+<ul class='collection'>
   <% @animals.each do |animal| %>
-    <li><%= link_to "#{animal.name}", animal %></li>
+    <li class='collection-item'><%= link_to "#{animal.name}", animal %></li>
   <% end %>
 </ul>

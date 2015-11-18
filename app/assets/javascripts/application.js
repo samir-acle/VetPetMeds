@@ -12,10 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.drawsvg.min.js
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
-
-$(document).ready(function() {
-   $('select').material_select();
- });

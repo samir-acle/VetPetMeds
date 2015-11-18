@@ -20,6 +20,7 @@ class DosesController < ApplicationController
       else
         @dosage = ( @animal.weight / 10.0 ) * @drug.dosing
         @dose = @animal.doses.create(drug: @drug, dosage: @dosage, user: current_user)
+        redirect_to @dose
       end
 
     else
@@ -39,6 +40,10 @@ class DosesController < ApplicationController
   def sort
     session[:doses_sort_by] = params[:sort_by]
     redirect_to doses_path
+  end
+
+  def show
+    @dose = Dose.find(params[:id])
   end
 
   private
