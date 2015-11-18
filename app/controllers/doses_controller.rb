@@ -33,7 +33,12 @@ class DosesController < ApplicationController
   end
 
   def index
-    @doses = Dose.all
+    @doses = Dose.all.order(session[:doses_sort_by])
+  end
+
+  def sort
+    session[:doses_sort_by] = params[:sort_by]
+    redirect_to doses_path
   end
 
   private
