@@ -14,12 +14,12 @@ class DosesController < ApplicationController
       puts '*' * 50
       puts @restriction
 
-      if @restriction && @restrication != @animal.species
+      if @restriction && @restriction != @animal.species
         flash[:alert] = "That drug only used for #{@restriction}"
         redirect_to new_animal_dose_path(@animal)
       else
         @dosage = ( @animal.weight / 10.0 ) * @drug.dosing
-        @animal.doses.create(drug: @drug, dosage: @dosage)
+        @dose = @animal.doses.create(drug: @drug, dosage: @dosage, user: current_user)
       end
 
     else
@@ -30,6 +30,10 @@ class DosesController < ApplicationController
     # maybe change to new and then ask to save
     # alternative, stick with create, but delete if don't
     # want to log
+  end
+
+  def index
+    @doses = Dose.all
   end
 
   private
