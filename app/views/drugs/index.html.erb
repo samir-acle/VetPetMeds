@@ -1,0 +1,9 @@
+<h2>Drugs Drugs Drugs</h2>
+
+<ul>
+  <% @drugs.each do |drug| %>
+    <li>
+      <%= link_to "#{drug.name}", drug %>
+    </li>
+  <% end %>
+</ul>

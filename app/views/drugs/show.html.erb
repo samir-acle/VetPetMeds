@@ -1,0 +1,9 @@
+<h2><%= @drug.name %></h2>
+<h3><%= @drug.dosing %> cc per 10lb</h3>
+<h3><%= @drug.route %></h3>
+<% if @drug.restrictions %>
+  <h3>For <%= @drug.restrictions %>s Only</h3>
+<% else  %>
+  <h3>For both cat and dog use</h3>
+<% end %>
+<h3><%= @drug.notes %></h3>
