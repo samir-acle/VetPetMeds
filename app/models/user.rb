@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :doses
+  has_many :animals, through: :doses
+  has_many :drugs, through: :doses
 end
