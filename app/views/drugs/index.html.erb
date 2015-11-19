@@ -11,9 +11,9 @@
 <div class="row">
 <% @drugs.each do |drug| %>
   <div class="col s6 m4">
-    <div class="card">
+    <div class="card purple accent-1">
       <div class="card-image waves-effect waves-block waves-light">
-        <%= image_tag "morphine.png", class: "activator" %>
+        <%= image_tag "#{drug.name.downcase}.png", class: "activator" %>
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"><%= drug.name %><i class="material-icons right">more_vert</i></span>
@@ -33,3 +33,7 @@
 <% end %>
 </div>
   <!-- commons.wikimedia -->
+
+<%# TODO: choose color schemes %>
+<%# TODO: fix buprenorphine so has correct dosing %>
+<%# TODO: fix dosage calc so doesnt allow non meds %>
