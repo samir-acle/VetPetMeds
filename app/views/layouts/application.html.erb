@@ -41,8 +41,10 @@
   $(document).ready(function() {
      $('select').material_select();
 
-     var mySVG = $('svg').drawsvg({duration: 10000});
-     mySVG.drawsvg('animate');
+     var paw = $('.paw').drawsvg({duration: 10000});
+     paw.drawsvg('animate');
+     var animal = $('.animal-icon').drawsvg({duration: 2000});
+     animal.drawsvg('animate');
    });
  </script>
 </body>

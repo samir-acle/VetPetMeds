@@ -4,6 +4,8 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all.order(:name)
+    @cats = Animal.where(species: 'cat').order(:name)
+    @dogs = Animal.where(species: 'dog').order(:name)
   end
 
   def new
