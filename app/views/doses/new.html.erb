@@ -1,12 +1,10 @@
 <p>Please double check the following information is correct:
-  <%= @animal.name %> weighs <%= @animal.weight %> lbs</p>
+  <%= "#{@animal.name} (#{@animal.species})" %> weighs <%= @animal.weight %> lbs</p>
 
 <%= form_for [@animal,@dose] do |f| %>
   <div class='input-field col s12'>
     <%= collection_select :dose, :drug_id, Drug.all, :id, :name, {:prompt => 'Select the Drug'} %>
-    <!-- <label for='dose_drug_id'>Choose Your Drug</label> -->
   </div>
-
   <%= f.submit %>
 <% end %>
 

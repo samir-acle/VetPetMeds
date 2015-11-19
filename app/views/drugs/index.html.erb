@@ -1,4 +1,5 @@
-<h2>Drugs Drugs Drugs</h2>
+<h2 class='center'>Drugs</h2>
+<h3 class='center'>Pre-Surgery and Anesthesia</h3>
 
 <div class="row">
 <% @drugs.each do |drug| %>
@@ -8,16 +9,25 @@
         <%= image_tag "#{drug.name.downcase}.png", class: "activator" %>
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= drug.name %><i class="material-icons right">more_vert</i></span>
-        <!-- <p><a href="#">This is a link</a></p> -->
+        <span class="card-title activator grey-text text-darken-4"><%= drug.name %>
+          <i class="material-icons right">more_vert</i></span>
       </div>
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4"><%= drug.name %><i class="material-icons right">close</i></span>
+        <span class="card-title grey-text text-darken-4"><%= drug.name %>
+          <i class="material-icons right">close</i></span>
           <ul class="collection">
-            <li>Dosing = <%= drug.dosing %> cc per 10lb</li>
-            <li>Route = <%= drug.route %></li>
-            <li>Species = <%= drug.restrictions %></li>
-            <li>Notes = <%= drug.notes %></li>
+            <li class='collection-item'>Dosing = <%= drug.dosing %> cc per 10lb</li>
+            <li class='collection-item'>Route = <%= drug.route %></li>
+            <li class='collection-item'>Species =
+              <% if !drug.restrictions %>
+                both cats and dogs
+              <% else %>
+                <%= drug.restrictions %>s only
+              <% end %>
+            </li>
+            <% if drug.notes %>
+              <li class='collection-item'>Notes = <%= drug.notes %></li>
+            <% end %>
           </ul>
       </div>
     </div>
