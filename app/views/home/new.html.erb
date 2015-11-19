@@ -12,13 +12,13 @@
 
 <%= form_for @animal, url: {action: "create"} do |f| %>
   <div class="section animal-info">
-    <%= radio_button_tag(:species, "cat") %>
+    <%= radio_button_tag(:species, "cat", required: "required") %>
     <%= label_tag(:species_cat, "Cat") %>
     <%= radio_button_tag(:species, "dog") %>
     <%= label_tag(:species_dog, "Dog") %>
 
     <div class="input-field">
-      <%= number_field(:animal, :weight) %>
+      <%= number_field(:animal, :weight, min: 1, class: "validate", required: 'required') %>
       <%= label_tag(:animal_weight, "Weight (lbs)") %>
     </div>
   </div>
@@ -26,7 +26,7 @@
 
   <div class="section">
     <% @drugs.each do |drug| %>
-      <%= radio_button_tag(:drug, "#{drug.id}") %>
+      <%= radio_button_tag(:drug, "#{drug.id}", required: "required") %>
       <%= label_tag(:"drug_#{drug.id}", "#{drug.name}") %>
     <% end %>
   </div>
