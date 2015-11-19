@@ -11,9 +11,11 @@
   <nav>
     <ul class='left'>
       <li><%= link_to 'Home', root_path, class: 'waves-effect btn-flat' %></li>
+    <% if current_user %>
       <li><%= link_to 'Animals', animals_path, class: 'waves-effect btn-flat' %></li>
       <li><%= link_to 'Medications', drugs_path, class: 'waves-effect btn-flat' %></li>
       <li><%= link_to 'Doses', doses_path, class: 'waves-effect btn-flat' %></li>
+    <% end %>
     </ul>
 
    <ul class='right'>

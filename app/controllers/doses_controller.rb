@@ -1,5 +1,7 @@
 class DosesController < ApplicationController
   before_action :set_animal, only: [:new, :create]
+  before_action :authenticate_user!
+
   def new
     @dose = @animal.doses.new
   end
