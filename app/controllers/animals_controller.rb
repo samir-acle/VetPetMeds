@@ -41,7 +41,7 @@ class AnimalsController < ApplicationController
     redirect_to animal_path(@animal, :sort_by => @sort_by)
   end
 
-# TODO: fix so does not delete if have doses?
+# TODO: fix so does not delete if have doses?... you could do a dependent destroy in the model so it will delete animals with doses
   def destroy
     if @animal.doses
       flash[:alert] = 'You cannot delete animals that have doses'
