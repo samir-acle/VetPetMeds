@@ -21,12 +21,18 @@ class DosesController < ApplicationController
   end
 
   def index
-    @doses = Dose.all.order(session[:doses_sort_by])
+    # @doses = Dose.all.order(session[:doses_sort_by])
+    @doses = Dose.all.order("#{params[:sort_by]} #{session[:sort_order]}")
   end
 
   def sort
-    session[:doses_sort_by] = params[:sort_by]
-    redirect_to doses_path
+    @sort_by = params[:sort_by]
+    if session[:sort_order] == "asc"
+      session[:sort_order] = "desc"
+    else
+      session[:sort_order] = "asc"
+    end
+    redirect_to doses_path(:sort_by => @sort_by)
   end
 
   def show
