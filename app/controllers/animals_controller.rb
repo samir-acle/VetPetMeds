@@ -19,7 +19,7 @@ class AnimalsController < ApplicationController
 
   def show
     @doses = @animal.doses
-    @doses = @doses.order(session[:sort_by])
+    @doses = @doses.order("#{session[:animal_sort_by]} #{session[:animal_sort_order]}")
   end
 
   def edit
@@ -30,10 +30,15 @@ class AnimalsController < ApplicationController
     redirect_to @animal
   end
 
-  # TODO: figure out how to switch from asc to desc
   def sort
-    session[:sort_by] = params[:sort_by]
-    redirect_to @animal
+    @sort_by = params[:sort_by]
+    session[:animal_sort_by] = @sort_by
+    if session[:animal_sort_order] == "asc"
+      session[:animal_sort_order] = "desc"
+    else
+      session[:animal_sort_order] = "asc"
+    end
+    redirect_to animal_path(@animal, :sort_by => @sort_by)
   end
 
 # TODO: fix so does not delete if have doses?
@@ -56,3 +61,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
   end
 end
+
+# TODO: change sort so can store in session still and see in query string?
+# TODO: also make so different session values for animals and med log
+# TODO: figure out how to sort by drug name!!!!
