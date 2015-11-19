@@ -1,7 +1,22 @@
-<h3>drug dosing info: <%= @dose.drug.dosing %></h3>
-<h3>drug name: <%= @dose.drug.name %></h3>
+<div class='row'>
+  <div class='col s12'>
+    <h2 class='center'>dosage:</h2>
+  </div>
+</div>
 
-<h4>animal weight: <%= @dose.animal.weight %> lbs</h4>
-<h4>animal weight divided by 10 <%= @dose.animal.weight / 10.0 %></h4>
+<div class='row'>
+  <div class='col s4 offset-s4 card-panel indigo lighten-2 center'>
+    <h3><%= @dose.dosage %> cc</h3>
+    <p><%= @dose.drug.name.upcase %></p>
+  </div>
+</div>
 
-<h5>dosage: <%= @dose.dosage %></h5>
+<h4 class='center'>Patient Info</h4>
+<p class='center'><%= @animal.name %></p>
+<p class='center'><%= "#{@animal.weight}lb #{@animal.species}" %></p>
+
+<div class='row'>
+    <%= link_to 'Log this Dose', @animal, class: 'btn col s12 m4 offset-m4' %>
+    <%= link_to 'Delete this Dose', @dose, method: 'delete', class: 'btn col s12 m4 offset-m4' %>
+  </div>
+</div>

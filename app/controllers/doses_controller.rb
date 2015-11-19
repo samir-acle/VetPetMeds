@@ -1,6 +1,8 @@
 class DosesController < ApplicationController
   before_action :set_animal, only: [:new, :create]
   before_action :authenticate_user!
+  before_action :set_dose, only: [:destroy, :show]
+  before_action :get_animal, only: [:destroy, :show]
 
   def new
     @dose = @animal.doses.new
@@ -46,10 +48,24 @@ class DosesController < ApplicationController
 
   def show
     @dose = Dose.find(params[:id])
+    @animal = @dose.animal
+  end
+
+  def destroy
+    @dose.destroy
+    redirect_to @animal
   end
 
   private
   def set_animal
     @animal = Animal.find(params[:animal_id])
+  end
+
+  def set_dose
+    @dose = Dose.find(params[:id])
+  end
+
+  def get_animal
+    @animal = @dose.animal
   end
 end
