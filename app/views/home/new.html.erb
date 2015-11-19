@@ -1,0 +1,40 @@
+<!-- <div class="row">
+  <div class="col s6">
+    <div class='card'>
+      <div class="card-image">
+
+    <div class="card-content white-text">
+
+    </div>
+  </div>
+  </div>
+</div> -->
+
+<%= form_for @animal, url: {action: "create"} do |f| %>
+  <div class="section animal-info">
+    <%= radio_button_tag(:species, "cat") %>
+    <%= label_tag(:species_cat, "Cat") %>
+    <%= radio_button_tag(:species, "dog") %>
+    <%= label_tag(:species_dog, "Dog") %>
+
+    <div class="input-field">
+      <%= number_field(:animal, :weight) %>
+      <%= label_tag(:animal_weight, "Weight (lbs)") %>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section">
+    <% @drugs.each do |drug| %>
+      <%= radio_button_tag(:drug, "#{drug.id}") %>
+      <%= label_tag(:"drug_#{drug.id}", "#{drug.name}") %>
+    <% end %>
+  </div>
+  <div class="divider"></div>
+
+  <%= f.submit "Calculate Dosage" %>
+<% end  %>
+
+<div class="section">
+  <p>Dosage = <%= @dosage %> cc via <%= @drug.route %></p>
+</div>
