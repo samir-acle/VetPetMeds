@@ -3,6 +3,7 @@ class DrugsController < ApplicationController
 
   def index
     @drugs = Drug.all
+    @morph = Drug.find_by(name: 'Morphine')
   end
 
   def new
