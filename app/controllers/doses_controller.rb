@@ -9,32 +9,15 @@ class DosesController < ApplicationController
   end
 
   def create
-    # TODO: find better validation way
-    # TODO: do not allow dose if has restriction
-
-    if params[:dose]["drug_id"] != ""
-      @drug = Drug.find(params[:dose]["drug_id"])
-      @restriction = @drug.restrictions
-      puts '*' * 50
-      puts @restriction
-
-      if @restriction && @restriction != @animal.species
-        flash[:alert] = "That drug only used for #{@restriction}"
-        redirect_to new_animal_dose_path(@animal)
-      else
-        @dosage = ( @animal.weight / 10.0 ) * @drug.dosing
-        @dose = @animal.doses.create(drug: @drug, dosage: @dosage, user: current_user)
-        redirect_to @dose
-      end
-
-    else
-      flash[:alert] = 'Please pick a drug'
+    begin
+      @dose = @animal.doses.new(drug_id: params[:dose]["drug_id"], user: current_user)
+      @dose.save!
+    rescue ActiveRecord::RecordInvalid
+      flash[:alert] = @dose.errors.full_messages.first
       redirect_to new_animal_dose_path(@animal)
+    else
+      redirect_to @dose
     end
-
-    # maybe change to new and then ask to save
-    # alternative, stick with create, but delete if don't
-    # want to log
   end
 
   def index
