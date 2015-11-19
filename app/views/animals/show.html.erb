@@ -14,10 +14,10 @@
 <table class="striped">
   <thead>
     <tr>
-      <th><a href="/animals/<%= "#{@animal.id}" %>/sort/drug_id">Drug Name</a></th>
-      <th><a href="/animals/<%= "#{@animal.id}" %>/sort/dosage">Dosage</a></th>
-      <th><a href="/animals/<%= "#{@animal.id}" %>/sort/created_at">Date</a></th>
-      <th><a href="/animals/<%= "#{@animal.id}" %>/sort/user_id">User</a></th>
+      <th><%= animal_doses_link "Drug Name", "drugs.name" %></th>
+      <th><%= animal_doses_link "Dosage" %></th>
+      <th><%= animal_doses_link "Date", "created_at" %></th>
+      <th><%= animal_doses_link "User", "users.email" %></th>
     </tr>
   </thead>
 

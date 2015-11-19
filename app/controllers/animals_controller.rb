@@ -19,7 +19,7 @@ class AnimalsController < ApplicationController
 
   def show
     @doses = @animal.doses
-    @doses = @doses.order("#{session[:animal_sort_by]} #{session[:animal_sort_order]}")
+    @doses = @doses.order("#{params[:sort_by]} #{params[:order_by]}").joins(:drug, :user)
   end
 
   def edit
