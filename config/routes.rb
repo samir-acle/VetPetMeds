@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
     resources :doses, only: [:create, :new]
   end
-  resources :drugs
+  resources :drugs, only: [:index]
   resources :doses, only: [:index] do
     collection do
       get 'sort/:sort_by', to: 'doses#sort'

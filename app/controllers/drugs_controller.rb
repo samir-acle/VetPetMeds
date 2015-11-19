@@ -3,16 +3,5 @@ class DrugsController < ApplicationController
 
   def index
     @drugs = Drug.all
-    @morph = Drug.find_by(name: 'Morphine')
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def show
-    @drug = Drug.find(params[:id])
   end
 end
