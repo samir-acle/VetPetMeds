@@ -30,26 +30,9 @@ class AnimalsController < ApplicationController
     redirect_to @animal
   end
 
-  def sort
-    @sort_by = params[:sort_by]
-    session[:animal_sort_by] = @sort_by
-    if session[:animal_sort_order] == "asc"
-      session[:animal_sort_order] = "desc"
-    else
-      session[:animal_sort_order] = "asc"
-    end
-    redirect_to animal_path(@animal, :sort_by => @sort_by)
-  end
-
-# TODO: fix so does not delete if have doses?
   def destroy
-    if @animal.doses
-      flash[:alert] = 'You cannot delete animals that have doses'
-      redirect_to @animal
-    else
       @animal.destroy
-      redirect_to '/'
-    end
+      redirect_to animals_path
   end
 
   private
@@ -61,7 +44,3 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
   end
 end
-
-# TODO: change sort so can store in session still and see in query string?
-# TODO: also make so different session values for animals and med log
-# TODO: figure out how to sort by drug name!!!!

@@ -4,7 +4,7 @@
 <div class="row">
 <% @drugs.each do |drug| %>
   <div class="col s6 m4">
-    <div class="card purple accent-1">
+    <div class="card purple accent-1 hoverable">
       <div class="card-image waves-effect waves-block waves-light">
         <%= image_tag "#{drug.name.downcase}.png", class: "activator" %>
       </div>

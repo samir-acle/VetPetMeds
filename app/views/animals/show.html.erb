@@ -1,13 +1,18 @@
-<h2><%= @animal.name %></h2>
-<%= @animal.species %>
-<p><%= @animal.weight %> lbs</p>
+<div class="row">
+  <div class="col s12 m6 l4">
+    <div class="card-panel center">
+      <h2><%= @animal.name %></h2>
+      <p><%= @animal.species %></p>
+      <p><%= @animal.weight %> lbs</p>
+    </div>
+  </div>
 
-<div>
-
-<%= link_to 'Edit Animal',  edit_animal_path(@animal) %></div>
-<div><%= link_to 'Delete Animal',  @animal, method: :delete %></div>
-
-<%= link_to 'New Dose', new_animal_dose_path(@animal) %>
+  <div class="col s12">
+    <%= link_to 'Edit Animal',  edit_animal_path(@animal), class: 'btn' %>
+    <%= link_to 'Delete Animal',  @animal, method: :delete, class: 'btn' %>
+    <%= link_to 'New Dose', new_animal_dose_path(@animal), class: 'btn' %>
+  </div>
+</div>
 
 <h3>Medication Log</h3>
 
