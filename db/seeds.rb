@@ -22,4 +22,4 @@ Drug.create(name: 'Midazolam', dosing: 0.13, route: 'IV', concentration: '5 mg/m
 
 # TODO: fix below dosing
 Drug.create(name: 'Buprenorphine', dosing: 0.03, route: 'IM or SC', concentration: '0.3 mg/ml', restrictions: 'cat')
-Drug.create(name: 'Cefazolin', dosing: 1, concentration: '100 mg/ml', notes: 'to mix add 9.6cc NaCl, only good 10 days in fridge')
+Drug.create(name: 'Cefazolin', dosing: 1.0, concentration: '100 mg/ml', notes: 'to mix add 9.6cc NaCl, only good 10 days in fridge')

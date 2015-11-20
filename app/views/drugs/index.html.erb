@@ -1,40 +1,40 @@
-<h2 class='center'>Drugs</h2>
+<h2 class='center'>Medications</h2>
 <h3 class='center'>Pre-Surgery and Anesthesia</h3>
 
 <div class="row">
-<% @drugs.each do |drug| %>
-  <div class="col s6 m4">
-    <div class="card purple accent-1 hoverable">
-      <div class="card-image waves-effect waves-block waves-light">
-        <%= image_tag "#{drug.name.downcase}.png", class: "activator" %>
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= drug.name %>
-          <i class="material-icons right">more_vert</i></span>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4" id="drug-name"><%= drug.name %>
-          <i class="material-icons right">close</i></span>
-          <ul class="collection">
-            <li class='collection-item'>Dosing = <%= drug.dosing %> cc per 10lb</li>
-            <li class='collection-item'>Route = <%= drug.route %></li>
-            <li class='collection-item'>Species =
-              <% if !drug.restrictions %>
-                both cats and dogs
-              <% else %>
-                <%= drug.restrictions %>s only
+  <% @drugs.each do |drug| %>
+    <div class="col s6 m4">
+      <div class="card indigo lighten-2 hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= image_tag "#{drug.name.downcase}.png", class: "activator" %>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= drug.name %>
+            <i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4" id="drug-name"><%= drug.name %>
+            <i class="material-icons right">close</i></span>
+            <ul class="collection">
+              <li class='collection-item'>Concentration = <%= drug.concentration %></li>
+              <li class='collection-item'>Dosing = <%= drug.dosing %> cc per 10lb</li>
+              <li class='collection-item'>Route = <%= drug.route %></li>
+              <li class='collection-item'>Species =
+                <% if !drug.restrictions %>
+                  both cats and dogs
+                <% else %>
+                  <%= drug.restrictions %>s only
+                <% end %>
+              </li>
+              <% if drug.notes %>
+                <li class='collection-item'>Notes = <%= drug.notes %></li>
               <% end %>
-            </li>
-            <% if drug.notes %>
-              <li class='collection-item'>Notes = <%= drug.notes %></li>
-            <% end %>
-          </ul>
+            </ul>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
-  <!-- commons.wikimedia -->
 
 <%# TODO: choose color schemes %>
 <%# TODO: fix buprenorphine so has correct dosing %>

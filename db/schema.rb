@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20151120010859) do
     t.string "route"
     t.string "restrictions"
     t.text   "notes"
-    t.string "image_url"
     t.string "concentration"
   end
 
