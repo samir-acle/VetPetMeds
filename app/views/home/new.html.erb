@@ -20,9 +20,11 @@
   </div>
   <div class="divider"></div>
 
-  <%= f.submit "Calculate Dosage" %>
+  <%= f.submit "Calculate Dosage", class: 'submit btn' %>
 <% end  %>
 
-<div class="section">
-  <p>Dosage = <%= @dosage %> cc via <%= @drug.route %></p>
-</div>
+<!-- <script>
+  $('.submit-btn').on('click', function(){
+    $('form').hide();
+  });
+</script> -->

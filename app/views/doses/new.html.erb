@@ -5,5 +5,5 @@
   <div class='input-field col s12'>
     <%= collection_select :dose, :drug_id, Drug.all, :id, :name, {:prompt => 'Select the Drug'} %>
   </div>
-  <%= f.submit %>
+  <%= f.submit class: 'btn' %>
 <% end %>

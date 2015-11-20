@@ -1,0 +1,15 @@
+
+<% if @drug["restrictions"] and @drug["restrictions"] != session[:species]%>
+  <p><%= @drug["name"] %> can only be used on <%= @drug["restrictions"] %>s.</p>
+<% else %>
+  <div class='row'>
+    <div class='col s4 offset-s4 card-panel indigo lighten-2 center'>
+      <h3><%= session[:dosage] %> cc</h3>
+      <p><%= @drug["name"].upcase %></p>
+    </div>
+  </div>
+<% end %>
+
+<div class='col s12 l6 center'>
+  <%= link_to 'Dosage Calculator', new_path, class: 'btn-large waves-effect'%>
+</div>

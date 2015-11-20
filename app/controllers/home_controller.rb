@@ -9,13 +9,14 @@ class HomeController < ApplicationController
   end
 
   def create
-    @animal = Animal.new
-    @animal.species = params[:species]
-    @animal.weight = params[:animal][:weight]
-    @drugs = Drug.all
-    @drug = Drug.find(params[:drug])
-    @dosage = (@animal.weight / 10) * @drug.dosing
-    params.inspect
-    render :new
+    session[:species] = params[:species]
+    session[:weight] = params[:animal][:weight]
+    session[:drug] = Drug.find(params[:drug])
+    session[:dosage] = (session[:weight].to_i / 10.0) * session[:drug].dosing.to_f
+    redirect_to show_path
+  end
+
+  def show
+    @drug = session[:drug]
   end
 end
