@@ -13,8 +13,16 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = Animal.create(animal_params)
-    redirect_to @animal
+    begin
+      @animal = Animal.new(animal_params)
+      @animal.species = @animal.species.downcase
+      @animal.save!
+    rescue ActiveRecord::RecordInvalid
+      set_flash
+      redirect_to new_animal_path
+    else
+      redirect_to @animal
+    end
   end
 
   def show
@@ -26,13 +34,19 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    @animal.update(animal_params)
-    redirect_to @animal
+    begin
+      @animal.update!(animal_params)
+    rescue ActiveRecord::RecordInvalid
+      set_flash
+      redirect_to edit_animal_path(@animal)
+    else
+      redirect_to @animal
+    end
   end
 
   def destroy
-      @animal.destroy
-      redirect_to animals_path
+    @animal.destroy
+    redirect_to animals_path
   end
 
   private
@@ -42,5 +56,14 @@ class AnimalsController < ApplicationController
 
   def set_animal
     @animal = Animal.find(params[:id])
+  end
+
+  def set_flash
+    error_message = @animal.errors.full_messages.first
+    if error_message.downcase.include? "species"
+      flash[:alert] = "Please enter either cat or dog for the species"
+    else
+      flash[:alert] = error_message
+    end
   end
 end

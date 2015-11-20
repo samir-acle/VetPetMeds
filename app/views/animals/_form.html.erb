@@ -1,19 +1,19 @@
 <%= form_for @animal do |f| %>
 
-<div class='input-field'>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</div>
+  <div class='input-field'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
-<div class='input-field'>
-  <%= f.label :species %>
-  <%= f.text_field :species %>
-</div>
+  <div class='input-field'>
+    <%= f.label :species, class: 'active' %>
+    <%= f.text_field :species %>
+  </div>
 
-<div class='input-field'>
-  <%= f.label :weight, 'weight in pounds' %>
-  <%= f.number_field :weight %>
-</div>
+  <div class='input-field'>
+    <%= f.label :weight, 'Weight (lbs)' %>
+    <%= f.number_field :weight %>
+  </div>
 
   <%= f.submit %>
 

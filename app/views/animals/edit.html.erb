@@ -1,4 +1,4 @@
-<h2>Updizzle</h2>
+<h2>Edit Information</h2>
 <%= form_for @animal do |f| %>
 
 <div class='input-field'>
@@ -12,7 +12,7 @@
 </div>
 
 <div class='input-field'>
-  <%= f.label :weight, 'Weight in Pounds', class: 'active' %>
+  <%= f.label :weight, 'Weight (lbs)', class: 'active' %>
   <%= f.number_field :weight %>
 </div>
 
@@ -21,3 +21,4 @@
 <% end %>
 
 <%# TODO: Fix view with labels while still using form - JS? %>
+<%# TODO: change edit/new so radio buttons with cat or dog or slee %>
