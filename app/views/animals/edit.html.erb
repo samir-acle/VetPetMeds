@@ -1,5 +1,7 @@
 <h2>Edit Information</h2>
-<%= form_for @animal do |f| %>
+<%= render 'form'  %>
+
+<!-- <%= form_for @animal do |f| %>
 
 <div class='input-field'>
   <%= f.label :name, class: 'active' %>
@@ -18,7 +20,7 @@
 
   <%= f.submit class: 'btn' %>
 
-<% end %>
+<% end %> -->
 
 <%# TODO: Fix view with labels while still using form - JS? %>
 <%# TODO: change edit/new so radio buttons with cat or dog or slee %>
