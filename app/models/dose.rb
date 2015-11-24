@@ -14,8 +14,11 @@ class Dose < ActiveRecord::Base
     def restrictions
       if self.drug
         @restriction = self.drug.restrictions
+        # This variable has a singular name, but seems to contain a collection?
         errors.add(:restriction, "- this drug is for #{@restriction}s only") if
           !@restriction.blank? and @restriction != self.animal.species
+        # Interesting syntax! I might split this up into multiple lines too
+        # The whole 5-line-method thing shouldn't come at the expense of readability!
       end
     end
 end

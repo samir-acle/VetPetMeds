@@ -19,6 +19,7 @@ class AnimalsController < ApplicationController
       @animal.save!
     rescue ActiveRecord::RecordInvalid
       set_flash
+      # Neat!
       redirect_to new_animal_path
     else
       redirect_to @animal
@@ -28,6 +29,7 @@ class AnimalsController < ApplicationController
   def show
     @doses = @animal.doses
     @doses = @doses.order("#{params[:sort_by]} #{params[:order_by]}").joins(:drug, :user)
+    # Bonus points for joins!
   end
 
   def edit
