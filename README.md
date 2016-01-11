@@ -17,8 +17,8 @@ By signing up and logging in to this website, you have access to other features 
 
 ##Technologies used
 ###Libraries/Frameworks/Plug-Ins
-* [jQuery](https://jquery.com/)
-* [D3](http://d3js.org/)
+* [Ruby on Rails](http://rubyonrails.org/)
 * [PostgreSQL](http://www.postgresql.org/)
 * [jQuery DrawSvg](http://lcdsantos.github.io/jquery-drawsvg/)
 * [Materialize.css](http://materializecss.com/)
+* [Coffescript] (http://coffeescript.org/)
