@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
+  # These should just be included in the doses resource.
   get 'new', to: 'home#new'
   post 'new', to: 'home#create'
   get 'show', to: 'home#show'

@@ -15,6 +15,15 @@ Animal.create(name: 'Milo', weight: 11, species: 'cat')
 Animal.create(name: 'Yuki', weight: 13, species: 'cat')
 Animal.create(name: 'Kiwi', weight: 10, species: 'cat')
 
+# You can use AR's bulk creation method as well:
+=begin
+Animal.create([
+  {name: 'Addy', weight: 28, species: 'dog'},
+  {name: 'Duma', weight: 42, species: 'dog'},
+  ...
+])
+=end
+
 Drug.create(name: 'Morphine', dosing: 0.3, route: 'IM or SC', concentration: '15 mg/ml', notes: 'Can give up to 1mg/kg with a 50mg maximum dose', restrictions: 'dog')
 Drug.create(name: 'Acepromazine', dosing: 0.12, route: 'IM or SC', concentration: '1 mg/ml', notes: 'Causes vomiting. To dilute Ace 10mg/ml draw up to 0.1cc Ace with 1cc NaCl')
 Drug.create(name: 'Ketamine', dosing: 0.13, route: 'IV', concentration: '100 mg/ml')
