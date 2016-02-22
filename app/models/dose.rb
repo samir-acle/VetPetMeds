@@ -16,6 +16,8 @@ class Dose < ActiveRecord::Base
         @restriction = self.drug.restrictions
         errors.add(:restriction, "- this drug is for #{@restriction}s only") if
           !@restriction.blank? and @restriction != self.animal.species
+        puts '*' * 50
+        puts errors
       end
     end
 end
